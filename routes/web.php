@@ -13,14 +13,10 @@ use App\Http\Controllers\back\AdminController;
 |
 */
 Auth::routes();
-Route::get('/admin', [AdminController::class, 'index'])->name('admin.index');
+Route::get('/admin', [AdminController::class, 'index'])->name('admin.index')->middleware('CheckRole');
 
 Route::get('/', function () {
     return view('front.main');
-});
-
-
-
-Auth::routes();
+})->name('main');
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
