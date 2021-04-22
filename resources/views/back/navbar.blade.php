@@ -1,9 +1,9 @@
 <nav class="navbar default-layout col-lg-12 col-12 p-0 fixed-top d-flex flex-row">
     <div class="text-center navbar-brand-wrapper d-flex align-items-top justify-content-center">
       <a class="navbar-brand brand-logo" href="index.html">
-        <img src="back/assets/images/logo.svg" alt="logo" /> </a>
+        <img src="{{ asset('back/assets/images/logo.svg') }}" alt="logo" /> </a>
       <a class="navbar-brand brand-logo-mini" href="index.html">
-        <img src="back/assets/images/logo-mini.svg" alt="logo" /> </a>
+        <img src="{{ asset('back/assets/images/logo-mini.svg') }}" alt="logo" /> </a>
     </div>
     <div class="navbar-menu-wrapper d-flex align-items-center">
       <ul class="navbar-nav">
@@ -63,7 +63,7 @@
             <div class="dropdown-divider"></div>
             <a class="dropdown-item preview-item">
               <div class="preview-thumbnail">
-                <img src="back/assets/images/faces/face10.jpg" alt="image" class="img-sm profile-pic"> </div>
+                <img src="{{ asset('back/assets/images/faces/face10.jpg') }}" alt="image" class="img-sm profile-pic"> </div>
               <div class="preview-item-content flex-grow py-2">
                 <p class="preview-subject ellipsis font-weight-medium text-dark">حمید حمیدی </p>
                 <p class="font-weight-light small-text"> ایمیل ثبت نام ارسال شد </p>
@@ -71,7 +71,7 @@
             </a>
             <a class="dropdown-item preview-item">
               <div class="preview-thumbnail">
-                <img src="back/assets/images/faces/face12.jpg" alt="image" class="img-sm profile-pic"> </div>
+                <img src="{{ asset('back/assets/images/faces/face12.jpg') }}" alt="image" class="img-sm profile-pic"> </div>
               <div class="preview-item-content flex-grow py-2">
                 <p class="preview-subject ellipsis font-weight-medium text-dark">امیر امیری </p>
                 <p class="font-weight-light small-text"> ایمیل ثبت نام ارسال شد </p>
@@ -79,7 +79,7 @@
             </a>
             <a class="dropdown-item preview-item">
               <div class="preview-thumbnail">
-                <img src="back/assets/images/faces/face1.jpg" alt="image" class="img-sm profile-pic"> </div>
+                <img src="{{ asset('back/assets/images/faces/face1.jpg') }}" alt="image" class="img-sm profile-pic"> </div>
               <div class="preview-item-content flex-grow py-2">
                 <p class="preview-subject ellipsis font-weight-medium text-dark">حامد حامدی </p>
                 <p class="font-weight-light small-text"> ایمیل ثبت نام ارسال شد </p>
@@ -129,10 +129,10 @@
         </li>
         <li class="nav-item dropdown d-none d-xl-inline-block user-dropdown">
           <a class="nav-link dropdown-toggle" id="UserDropdown" href="#" data-toggle="dropdown" aria-expanded="false">
-            <img class="img-xs rounded-circle" src="back/assets/images/faces/face8.jpg" alt="Profile image"> </a>
+            <img class="img-xs rounded-circle" src="{{ asset('back/assets/images/faces/face8.jpg') }}" alt="Profile image"> </a>
           <div class="dropdown-menu dropdown-menu-right navbar-dropdown" aria-labelledby="UserDropdown">
             <div class="dropdown-header text-center">
-              <img class="img-md rounded-circle" src="back/assets/images/faces/face8.jpg" alt="Profile image">
+              <img class="img-md rounded-circle" src="{{ asset('back/assets/images/faces/face8.jpg') }}" alt="Profile image">
               <p class="mb-1 mt-3 font-weight-semibold">ابوالفضل طالبی</p>
               <p class="font-weight-light text-muted mb-0">allenmoreno@gmail.com</p>
             </div>

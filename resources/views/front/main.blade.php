@@ -20,7 +20,7 @@
 
 <main id="main">
 
-
+@include('front.messages')
 
     <!--==========================
       About Us Section

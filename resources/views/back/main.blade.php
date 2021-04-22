@@ -1,3 +1,9 @@
+@extends('back.index')
+
+@section('title')
+    پنل مدیریت
+@endsection
+@section('content')
 <div class="main-panel">
     <div class="content-wrapper">
       <!-- Page Title Header Starts-->
@@ -7,7 +13,7 @@
             <h4 class="page-title">پنل مدیریت</h4>
           </div>
         </div>
-         
+
       </div>
       <!-- Page Title Header Ends-->
       <h1>پنل من</h1>
@@ -25,3 +31,5 @@
     </footer>
     <!-- partial -->
   </div>
+@endsection
+

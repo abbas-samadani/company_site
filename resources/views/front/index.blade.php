@@ -13,15 +13,13 @@
   <link href="img/apple-touch-icon.png" rel="apple-touch-icon">
   <link rel="stylesheet" href="{{url('/front/css/app.css')}}">
   <link rel="stylesheet" href="{{url('/front/css/font-awesome/css/font-awesome.min.css')}}">
-  <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
-<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
-<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
   <!-- Google Fonts -->
   <link
     href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,500,600,700,700i|Montserrat:300,400,500,600,700"
     rel="stylesheet">
-    
-    
+
+
   <!-- =======================================================
     Theme Name: Rapid
     Theme URL: https://bootstrapmade.com/rapid-multipurpose-bootstrap-business-template/
@@ -36,15 +34,15 @@
 
 
   @yield('content')
-  
 
-  
+
+
  @include('front.footer')
   <a href="#" class="back-to-top"><i class="fa fa-chevron-up"></i></a>
   <!-- Uncomment below i you want to use a preloader -->
   <!-- <div id="preloader"></div> -->
 
-  
+
 
 </body>
 

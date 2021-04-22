@@ -1,10 +1,12 @@
-@extends('front.index')
+@extends('front.index');
 @section('content')
 <section id="intro2" class="clearfix"></section>
 
 <main class="container main2">
 
     <div class="main">
+
+        @include('front.messages');
 
         <nav aria-label="breadcrumb">
             <ol class="breadcrumb bgcolor">
@@ -14,12 +16,12 @@
         </nav>
 
         <div class="d-flex justify-content-center">
-            <form action="{{route('register')}}" method="POST">
+            <form action="{{route('profileupdate' , $user->id)}}" method="POST">
                 @csrf
                 <div class="form-group">
                     <label for="title">نام و نام خانوادگی</label>
                     <input type="text" class="form-control @error('name') is-invalid @enderror" name="name"
-                        value="{{old('name')}}">
+                        value="{{$user->name}}">
                     @error('name')
                     <div class="alert alert-danger">{{$message}}</div>
                     @enderror
@@ -28,7 +30,7 @@
                 <div class="form-group">
                     <label for="title">ایمیل</label>
                     <input type="email" class="form-control @error('email') is-invalid @enderror" name="email"
-                        value="{{old('email')}}">
+                        value="{{$user->email}}">
                     @error('email')
                     <div class="alert alert-danger">{{$message}}</div>
                     @enderror
@@ -37,7 +39,7 @@
                 <div class="form-group">
                     <label for="title">موبایل</label>
                     <input type="text" class="form-control @error('phone') is-invalid @enderror" name="phone"
-                        value="{{old('phone')}}">
+                        value="{{$user->email}}">
                     @error('phone')
                     <div class="alert alert-danger">{{$message}}</div>
                     @enderror

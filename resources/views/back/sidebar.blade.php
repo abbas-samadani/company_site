@@ -3,7 +3,7 @@
       <li class="nav-item nav-profile">
         <a href="#" class="nav-link">
           <div class="profile-image">
-            <img class="img-xs rounded-circle" src="back/assets/images/faces/face8.jpg" alt="profile image">
+            <img class="img-xs rounded-circle" src="{{ asset('back/assets/images/faces/face8.jpg') }}" alt="profile image">
             <div class="dot-indicator bg-success"></div>
           </div>
           <div class="text-wrapper">
@@ -28,7 +28,7 @@
         <div class="collapse" id="ui-basic">
           <ul class="nav flex-column sub-menu">
             <li class="nav-item">
-              <a class="nav-link" href="pages/ui-features/buttons.html">کاربران</a>
+              <a class="nav-link" href="{{ route('admin.users') }}">کاربران</a>
             </li>
             <li class="nav-item">
               <a class="nav-link" href="pages/ui-features/dropdowns.html">دسته بندی ها</a>

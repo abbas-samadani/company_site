@@ -1,5 +1,4 @@
 <header id="header">
-
     <div id="topbar">
       <div class="container">
         <div class="social-links">
@@ -16,7 +15,7 @@
       <div class="logo float-left">
         <h1 class="text-light"><a href="#intro" class="scrollto"><span>Rapid</span></a></h1>
       </div>
-      
+
       <nav class="main-nav float-right d-none d-lg-block">
         <ul>
           <li class="active"><a href="#intro">خانه</a></li>
@@ -26,23 +25,23 @@
           <li><a href="#team">تیم ما</a></li>
           <li class="drop-down"><a href="">مدیریت کاربران</a>
             <ul>
-              
+
               @auth
-              <li><a href="#">پنل کاربری</a></li>  
+              <li><a href="{{route('profile' , Auth::user()->id)}}">پروفایل کاربری</a></li>
               @if (Auth::user()->role==1)
               <li><a href="{{route('admin.index')}}">پنل مدیریت</a></li>
-              @endif            
-              
+              @endif
+
               <form action="{{route('logout')}}" method="POST">
                 @csrf
                 <button class="btn btn-primary">خروج</button>
               </form>
                   @else
-                  <li><a href="{{route('login')}}">ورود</a></li>              
+                  <li><a href="{{route('login')}}">ورود</a></li>
                   <li><a href="{{route('register')}}">ثبت نام</a></li>
               @endauth
-              
-              
+
+
 
             </ul>
           </li>
