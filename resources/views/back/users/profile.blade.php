@@ -68,6 +68,7 @@
             <div class="form-group">
                 <label for="title"></label>
                 <button type="submit" class="btn btn-success">ویرایش </button>
+                <a href="{{ route('admin.users') }}" class="btn btn-warning">انصراف</a>
             </div>
 
         </form>

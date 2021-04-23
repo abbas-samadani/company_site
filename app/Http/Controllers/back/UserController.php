@@ -125,4 +125,15 @@ class UserController extends Controller
         $msg = 'حذف با موفقیت انجام شد';
         return redirect('admin/users')->with('success' ,$msg);
     }
+
+    public function updateStatus(User $user){
+        if($user->status==0){
+            $user->status=1;
+        }else{
+            $user->status=0;
+        }
+        $user->save();
+        $msg = 'بروزرسانی با موفقیت انجام شد';
+        return redirect('admin/users')->with('success' ,$msg);
+    }
 }

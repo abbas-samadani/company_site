@@ -1,7 +1,7 @@
 @extends('back.index')
 
 @section('title')
-    پنل مدیریت-مدیریت کاربران
+    پنل مدیریت-مدیریت دسته بندی ها
 @endsection
 @section('content')
 <div class="main-panel">
@@ -11,62 +11,38 @@
       <div class="row page-title-header">
         <div class="col-12">
           <div class="page-header">
-            <h4 class="page-title">مدیریت کاربران</h4>
+            <h4 class="page-title">مدیریت دسته بندی ها</h4>
           </div>
         </div>
 
       </div>
       <!-- Page Title Header Ends-->
       @include('back.messages')
+
+      <a href="{{ route('admin.categories.create') }}" class="btn btn-success mb-2"> اضافه کردن دسته بندی</a>
+
       <div class="card">
         <div class="card-body">
-          <h4 class="card-title">لیست کاربران</h4>
+          <h4 class="card-title">لیست دسته بندی ها</h4>
           <table class="table table-hover">
             <thead>
               <tr>
                 <th>نام</th>
-                <th>ایمیل</th>
-                <th>تلفن</th>
-                <th>نقش</th>
-                <th>وضعیت</th>
+                <th>نام مستعار</th>
                 <th>مدیریت</th>
 
               </tr>
             </thead>
             <tbody>
-                @foreach ($users as $item)
+                @foreach ($categories as $category)
                   <tr>
-                     <td>{{ $item->name }}</td>
-                     <td>{{ $item->email }}</td>
-                     <td>{{ $item->phone }}</td>
-                     @if ($item->role == 1)
-                        <td>مدیر</td>
-                        @else
-                        <td>کاربر</td>
-                     @endif
-
-                     @if ($item->status == 1)
-                        <td>
-                            <a href="{{ route('admin.users.status',$item->id) }}" class="badge badge-success">
-                                فعال
-                            </a>
-
-                        </td>
-                        @else
-                        <td>
-                            <a href="{{ route('admin.users.status',$item->id) }}" class="badge badge-warning">
-                                غیرفعال
-                            </a>
-
-                        </td>
-                     @endif
-
-
+                     <td>{{ $category->name }}</td>
+                     <td>{{ $category->slug }}</td>
                      <td>
-                         <a href="{{ route('admin.profile' , $item->id) }}" class="badge badge-success">
+                         <a href="{{ route('admin.categories.edit' , $category->id) }}" class="badge badge-success">
                              ویرایش
                          </a>
-                         <a href="{{ route('admin.delete' , $item->id) }}" class="badge badge-danger">
+                         <a href="{{ route('admin.categories.destroy' , $category->id) }}" class="badge badge-danger">
                             حذف
                          </a>
                      </td>

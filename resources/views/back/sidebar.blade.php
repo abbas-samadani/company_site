@@ -31,7 +31,7 @@
               <a class="nav-link" href="{{ route('admin.users') }}">کاربران</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="pages/ui-features/dropdowns.html">دسته بندی ها</a>
+              <a class="nav-link" href="{{ route('admin.categories') }}">دسته بندی ها</a>
             </li>
             <li class="nav-item">
               <a class="nav-link" href="pages/ui-features/typography.html">مطالب</a>
