@@ -36,6 +36,16 @@ Route::prefix('admin/categories')->middleware('CheckRole')->group(function(){
     Route::get('/destroy/{category}', [App\Http\Controllers\back\CategoryController::class, 'destroy'])->name('admin.categories.destroy');
 });
 
+Route::prefix('admin/articles')->middleware('CheckRole')->group(function(){
+    Route::get('/', [App\Http\Controllers\back\ArticleController::class, 'index'])->name('admin.articles');
+    Route::get('/status/{article}', [App\Http\Controllers\back\ArticleController::class, 'updateStatus'])->name('admin.articles.status');
+    Route::get('/create', [App\Http\Controllers\back\ArticleController::class, 'create'])->name('admin.articles.create');
+    Route::post('/store', [App\Http\Controllers\back\ArticleController::class, 'store'])->name('admin.articles.store');
+    Route::get('/edit/{article}', [App\Http\Controllers\back\ArticleController::class, 'edit'])->name('admin.articles.edit');
+    Route::post('/update/{article}', [App\Http\Controllers\back\ArticleController::class, 'update'])->name('admin.articles.update');
+    Route::get('/destroy/{article}', [App\Http\Controllers\back\ArticleController::class, 'destroy'])->name('admin.articles.destroy');
+});
+
 
 
 Route::get('/', function () {
