@@ -90,7 +90,8 @@ class ArticleController extends Controller
      */
     public function edit(Article $article)
     {
-        //
+        $categories = Category::all()->pluck('name' , 'id');
+        return view('back.articles.edit' , compact('article' , 'categories'));
     }
 
     /**
@@ -102,7 +103,32 @@ class ArticleController extends Controller
      */
     public function update(Request $request, Article $article)
     {
-        //
+        $messages= [
+            'name.required' => 'فیلد نام را وارد کنید',
+            'slug.unique' => 'فیلد اسم مستعار نباید تکراری باشد ',
+            'slug.required' => 'فیلد اسم مستعار را وارد کنید',
+        ];
+
+        $validatedData = $request->validate([
+            'name' => 'required',
+            'slug' => 'required|unique:articles',
+        ], $messages);
+
+
+
+        try {
+            $article->update($request->all());
+            $article->categories()->sync($request->categories);
+        } catch (Exception $exception) {
+            switch ($exception->getMessage()) {
+                case 23000:
+                    $msg = "عنوان وارد شده تکراری است";
+                    break;
+            }
+            return redirect()->back()->with('warning' , $exception->getMessage());
+        };
+        $msg = ' ویرایش با موفقیت انجام گردید';
+        return redirect('admin/articles')->with('success' ,$msg);
     }
 
     /**
@@ -113,7 +139,9 @@ class ArticleController extends Controller
      */
     public function destroy(Article $article)
     {
-        //
+        $article->delete();
+        $msg = 'مطلب با موفقیت حذف گردید';
+        return redirect('admin/articles')->with('success' ,$msg);
     }
 
     public function updateStatus(Article $article){

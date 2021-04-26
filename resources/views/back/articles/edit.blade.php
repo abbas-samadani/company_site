@@ -1,7 +1,7 @@
 @extends('back.index')
 
 @section('title')
-    پنل مدیریت-مدیریت دسته بندی ها
+    پنل مدیریت-مدیریت مطالب
 @endsection
 @section('content')
 <div class="main-panel">
@@ -11,7 +11,7 @@
       <div class="row page-title-header">
         <div class="col-12">
           <div class="page-header">
-            <h4 class="page-title">مدیریت دسته بندی ها</h4>
+            <h4 class="page-title">مدیریت مطالب</h4>
           </div>
         </div>
 
@@ -22,31 +22,60 @@
 
       <div class="card">
         <div class="card-body">
-          <h4 class="card-title">ویرایش دسته بندی </h4>
+          <h4 class="card-title">اضافه کردن مطلب جدید</h4>
           <div class="container">
 
-
-
-        <div class="d-flex justify-content-center">
-            <form action="{{route('admin.categories.update', $category->id) }}" method="POST">
+        <div class="justify-content-center">
+            <form action="{{route('admin.articles.update' , $article->id)}}" method="POST">
                 @csrf
                 <div class="form-group">
-                    <label for="title">عنوان دسته بندی</label>
-                    <input type="text" class="form-control @error('title') is-invalid @enderror" name="title" value="{{ $category->name }}">
-                    @error('title')
+                    <label for="title">عنوان مطلب</label>
+                    <input type="text" class="form-control @error('title') is-invalid @enderror" name="name" value="{{ $article->name }}">
+                    @error('name')
                     <div class="alert alert-danger">{{$message}}</div>
                     @enderror
                 </div>
                 <div class="form-group">
-                    <label for="description"> نام مستعار</label>
-                    <input class="form-control @error('title') is-invalid @enderror" name="slug" value="{{ $category->slug }}">
+                    <label for="title"> نام مستعار</label>
+                    <input class="form-control @error('title') is-invalid @enderror" name="slug" value="{{ $article->slug }}">
+                    @error('slug')
+                    <div class="alert alert-danger">{{$message}}</div>
+                    @enderror
+                </div>
+                <div class="form-group">
+                    <label for="title"> توضیحات</label>
+                    <textarea class="form-control @error('title') is-invalid @enderror" name="description">{{ $article->description }}</textarea>
                     @error('description')
                     <div class="alert alert-danger">{{$message}}</div>
                     @enderror
                 </div>
 
                 <div class="form-group">
+                    <label for="title"> نویسنده: {{ Auth::user()->name }} </label>
+                    <input type="hidden" name="user_id" value="{{ Auth::user()->id }}">
+                </div>
+
+                <div class="form-group">
+                    <label for="title"> وضعیت </label>
+                    <select name="status" class="form-control" >
+                        <option value="0">منتشر شده</option>
+                        <option value="1" <?php if($article->status==1) echo 'selected' ?>>منتشر نشده</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="title"> انتخاب دسته بندی</label>
+                    <select name="categories" class="form-control">
+                        @foreach ($categories as $cat_id => $cat_name)
+
+                            <option value="{{ $cat_id }}" <?php if(in_array($cat_id , $article->categories->pluck('id')->toArray())) echo 'selected' ?>>{{ $cat_name }} </option>
+                        @endforeach
+                    </select>
+                </div>
+
+                <div class="form-group">
                     <button type="submit" class="btn btn-success">ذخیره</button>
+                    <a href="{{ route('admin.articles') }}" class="btn btn-warning">انصراف</a>
                 </div>
 
             </form>

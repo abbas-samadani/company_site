@@ -32,6 +32,7 @@
                 <th>توضیحات</th>
                 <th>نام نویسنده</th>
                 <th>تعداد بازدید</th>
+                <th>دسته بندی</th>
                 <th>وضعیت</th>
                 <th>مدیریت</th>
 
@@ -44,8 +45,13 @@
                      <td>{{ $article->name }}</td>
                      <td>{{ $article->slug }}</td>
                      <td>{{ Str::limit($article->description, 10 , '...') }}</td>
-                     <td>{{ $article->user_id }}</td>
+                     <td>{{ Auth::user()->name }}</td>
                      <td>{{ $article->hit }}</td>
+                     <td>
+                         @foreach ($article->categories()->pluck('name')  as $category)
+                             {{ $category }}
+                         @endforeach
+                     </td>
                      @if ($article->status == 1)
                         <td>
                             <a href="{{ route('admin.articles.status',$article->id) }}" class="badge badge-success">
